@@ -1,0 +1,139 @@
+   program 2
+
+part1 (index.html)
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form  action="Myapp" method="get">
+            Enter the number which you want table 
+            
+            <input type="text"  name="num">
+            <br><input type="submit">
+            
+            </form>
+            
+        </div>
+    </body>
+</html>
+
+
+
+part2(Myapp.java)
+
+package com.app;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author shubh
+ */
+public class Myapp extends HttpServlet {
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+            response.setContentType("text/html");  
+		PrintWriter pw = response.getWriter();  
+		  
+		String na=request.getParameter("num");//will return value  
+                    int number=Integer.parseInt(na);
+                    pw.println("your enter number is  "+number+"<br>");   
+         //check number is greater then or less then to 10           
+                    if(number<11)
+                    {
+                    for(int i=1;i<=10;i++)
+                    {
+                    pw.println("<img src='./image/a" + number+ ".jpg'  height='50px' weidth='50px'> "); 
+                    pw.println("<img src='./image/m1.jpg' height='50px' weidth='50px'> ");
+                    pw.println("<img src='./image/a" +i +".jpg'  height='50px' weidth='50px'> ");
+                    pw.println("<img src='./image/e.jpg' height='50px' weidth='50px'> ");
+                    int mul=number*i;
+                  
+                   
+                   int temp=mul;
+                   int count=0;
+                   while(temp>0)
+                   {
+                   count++;
+                   temp=temp/10;
+                        
+                   }
+                  double num12 = Math.pow(10,count-1);
+                  int j=(int)num12;
+                  for(;j>0;j/=10)
+                  {
+                  int result=mul/j%10;
+                   pw.println("<img src='./image/a" +result +".jpg'  height='50px' weidth='50px'> ");
+                  }
+                     pw.println("<br>");
+                 }
+                 }
+else{
+                        
+        int demo , counter=0 , k;
+        demo=number;
+        int rem1;
+        int example=number;
+        for(int i=1;i<=10;i++)
+        {
+        while(demo>0)
+        {
+        counter++;
+        demo=demo/10;
+        }
+        double numb =Math.pow(10,counter-1);
+        k=(int)numb;
+                 
+                   for(;k>0;k/=10)
+                    {
+                     rem1=example/k%10;
+                    
+                     pw.println("<img src='./image/a" +rem1+ ".jpg'  height='50px' weidth='50px'> "); 
+                    } 
+                     pw.println("<img src='./image/m1.jpg' height='50px' weidth='50px'> ");
+                     pw.println("<img src='./image/a" +i +".jpg'  height='50px' weidth='50px'> ");
+                     pw.println("<img src='./image/e.jpg' height='50px' weidth='50px'> ");
+                     int mul=number*i;
+                  
+                   
+                    int temp=mul;
+                    int count=0;
+                    while(temp>0)
+                    {
+                    count++;
+                    temp=temp/10;
+                        
+                    }
+                  double num12 = Math.pow(10,count-1);
+                  int j=(int)num12;
+                  for(;j>0;j/=10)
+                  {
+                  int result=mul/j%10;
+                   pw.println("<img src='./image/a" +result +".jpg'  height='50px' weidth='50px'> ");
+
+                  }
+                     pw.println("<br>");
+                    }
+                
+                    }
+                
+                }
+                    }
+                    
+          
+
+
+
+

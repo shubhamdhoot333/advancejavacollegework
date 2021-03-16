@@ -1,0 +1,72 @@
+index .html(part1)
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+
+
+<form method="get" action="NewServlet">
+            <input type="text" name="num" >
+            <input type="submit" >
+        </form>  
+    </body>
+</html>
+
+
+
+
+
+
+
+NewServlet.java(part2)
+
+package democ;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author shubh
+ */
+public class NewServlet extends HttpServlet {
+
+     
+    @Override
+     protected void doGet(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException {
+		res.setContentType("text/html");  
+		PrintWriter pw = res.getWriter();  
+		  
+		String name=req.getParameter("num");//will return value  
+                    int num=Integer.parseInt(name);
+                
+                pw.println("your friends is  "+num);  
+		pw.println("<br>"  );  
+                  if(5>num)
+                  {
+                  pw.println("your friends is less ");  
+                  }
+                  else
+                  {
+                      for(int i=1;i<=num;i++)
+                      {
+                       pw.println("frinds name"+ i +" <input type='text' name='name'"+i+"><br>");
+                      }
+                  }
+		pw.close();  
+		
+        
+    }
+
+}
+
